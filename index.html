@@ -249,17 +249,22 @@
     });
 
     let currentIndex = 0;
+    let isTransitioning = false;
 
     function updateBackground() {
       const scrollY = window.scrollY;
       for (let i = scenes.length - 1; i >= 0; i--) {
         if (scrollY >= scenes[i].threshold) {
-          if (currentIndex !== i) {
+          if (currentIndex !== i && !isTransitioning) {
+            isTransitioning = true;
             currentIndex = i;
             parallax.style.opacity = '0';
             setTimeout(() => {
               parallax.style.backgroundImage = `url(${scenes[i].image})`;
-              parallax.style.opacity = '1';
+              setTimeout(() => {
+                parallax.style.opacity = '1';
+                isTransitioning = false;
+              }, 50);
             }, 600);
           }
           break;
@@ -267,8 +272,11 @@
       }
     }
 
+    // Set initial background
+    parallax.style.backgroundImage = `url(${scenes[0].image})`;
+    parallax.style.opacity = '1';
+
     window.addEventListener('scroll', updateBackground);
-    updateBackground();
 
     // Fade-in sections on scroll
     const fadeSections = document.querySelectorAll('.fade-in');
