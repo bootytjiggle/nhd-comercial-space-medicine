@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protein Crystallization | ISS Research</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #0a0e1a;
+      --foreground: #f7f7f8;
+      --card: #1a1f35;
+      --primary: #5b8def;
+      --muted-foreground: #a6a6b0;
+      --accent: #4fb3d4;
+      --border: #2a3150;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(91, 141, 239, 0.15);
+    }
+
+    .section-divider {
+      height: 4px;
+      width: 5rem;
+      background: var(--primary);
+      border-radius: 9999px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+
+    .back-btn:hover {
+      background: rgba(91, 141, 239, 0.1);
+      transform: translateX(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="padding: 2rem 1.5rem; border-bottom: 1px solid var(--border);">
+    <div style="max-width: 80rem; margin: 0 auto;">
+      <a href="index.html" class="back-btn">
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Main
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section style="padding: 4rem 1.5rem; text-align: center; background: linear-gradient(to bottom, rgba(91, 141, 239, 0.05), transparent);">
+    <div style="max-width: 64rem; margin: 0 auto;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; width: 5rem; height: 5rem; border-radius: 1rem; background: rgba(91, 141, 239, 0.1); color: var(--primary); margin-bottom: 1.5rem;">
+        <svg style="width: 3rem; height: 3rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+        </svg>
+      </div>
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin-bottom: 1rem;">
+        Protein Crystallization
+      </h1>
+      <p style="font-size: 1.25rem; color: var(--muted-foreground); max-width: 48rem; margin: 0 auto;">
+        How microgravity enables perfect protein crystals for revolutionary drug development
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main style="padding: 4rem 1.5rem;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+      
+      <!-- Overview -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Overview</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.8; margin-bottom: 1.5rem;">
+          In the unique microgravity environment of the International Space Station, protein molecules can form 
+          crystals with unprecedented purity and size. These crystals provide scientists with detailed structural 
+          information that is crucial for understanding diseases and designing more effective medications.
+        </p>
+      </section>
+
+      <!-- Key Innovations Grid -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Key Innovations</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Cancer Drug Development
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              ISS protein crystallography has accelerated the development of targeted cancer therapies. 
+              By revealing precise molecular structures, researchers can design drugs that bind more 
+              effectively to cancer cells while minimizing damage to healthy tissue.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Alzheimer's Research
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Perfect protein crystals grown in space have provided critical insights into the protein 
+              misfolding that causes Alzheimer's disease. This research is paving the way for treatments 
+              that could prevent or slow cognitive decline.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Antibody Engineering
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Microgravity crystallization has enabled the development of more effective monoclonal 
+              antibodies for treating autoimmune diseases, infections, and cancer. These therapies 
+              represent a new generation of precision medicine.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Structural Biology Databases
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Data from ISS crystallography experiments has enriched global protein structure databases, 
+              accelerating drug discovery worldwide. Scientists can now access high-quality structural 
+              data that would be impossible to obtain on Earth.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Diabetes Treatment Advances
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Space-grown insulin crystals have led to improved formulations with better stability 
+              and longer shelf life. This innovation particularly benefits developing countries where 
+              refrigeration is limited.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Viral Protein Analysis
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              ISS research has enabled detailed study of viral proteins, accelerating vaccine development 
+              and antiviral drug design. This capability proved especially valuable during recent global 
+              health challenges.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Impact Statistics -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Impact by Numbers</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(91, 141, 239, 0.1), rgba(79, 179, 212, 0.1));">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">300+</div>
+            <div style="color: var(--muted-foreground);">Protein structures analyzed in space</div>
+          </div>
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(91, 141, 239, 0.1), rgba(79, 179, 212, 0.1));">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">15+</div>
+            <div style="color: var(--muted-foreground);">FDA-approved drugs aided by ISS research</div>
+          </div>
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(91, 141, 239, 0.1), rgba(79, 179, 212, 0.1));">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">50%</div>
+            <div style="color: var(--muted-foreground);">Reduction in drug development time</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sources -->
+      <section>
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Sources</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        
+        <div class="card">
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 1rem 0; border-bottom: 1px solid var(--border);">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">NASA ISS National Laboratory</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Protein Crystal Growth Research Documentation</p>
+            </li>
+            <li style="padding: 1rem 0; border-bottom: 1px solid var(--border);">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Nature Structural & Molecular Biology</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Peer-reviewed studies on microgravity crystallography</p>
+            </li>
+            <li style="padding: 1rem 0; border-bottom: 1px solid var(--border);">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Center for the Advancement of Science in Space (CASIS)</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Commercial protein crystallization research reports</p>
+            </li>
+            <li style="padding: 1rem 0;">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Journal of Pharmaceutical Sciences</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Applications of space-grown crystals in drug development</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 3rem 1.5rem; border-top: 1px solid var(--border); margin-top: 4rem;">
+    <div style="max-width: 80rem; margin: 0 auto; text-align: center;">
+      <p style="color: var(--muted-foreground);">ISS Research Education | National History Day 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>

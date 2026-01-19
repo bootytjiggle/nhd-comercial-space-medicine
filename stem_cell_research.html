@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stem Cell Research | ISS Research</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #0a0e1a;
+      --foreground: #f7f7f8;
+      --card: #1a1f35;
+      --primary: #4fb3d4;
+      --muted-foreground: #a6a6b0;
+      --accent: #5b8def;
+      --border: #2a3150;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(79, 179, 212, 0.15);
+    }
+
+    .section-divider {
+      height: 4px;
+      width: 5rem;
+      background: var(--primary);
+      border-radius: 9999px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+
+    .back-btn:hover {
+      background: rgba(79, 179, 212, 0.1);
+      transform: translateX(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="padding: 2rem 1.5rem; border-bottom: 1px solid var(--border);">
+    <div style="max-width: 80rem; margin: 0 auto;">
+      <a href="index.html" class="back-btn">
+        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Main
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section style="padding: 4rem 1.5rem; text-align: center; background: linear-gradient(to bottom, rgba(79, 179, 212, 0.05), transparent);">
+    <div style="max-width: 64rem; margin: 0 auto;">
+      <div style="display: inline-flex; align-items: center; justify-content: center; width: 5rem; height: 5rem; border-radius: 1rem; background: rgba(79, 179, 212, 0.1); color: var(--primary); margin-bottom: 1.5rem;">
+        <svg style="width: 3rem; height: 3rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+        </svg>
+      </div>
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 700; margin-bottom: 1rem;">
+        Stem Cell Research
+      </h1>
+      <p style="font-size: 1.25rem; color: var(--muted-foreground); max-width: 48rem; margin: 0 auto;">
+        Pioneering 3D tissue growth in microgravity for regenerative medicine breakthroughs
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main style="padding: 4rem 1.5rem;">
+    <div style="max-width: 80rem; margin: 0 auto;">
+      
+      <!-- Overview -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Overview</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.8; margin-bottom: 1.5rem;">
+          The microgravity environment of the ISS allows stem cells to grow in three dimensions without the need 
+          for artificial scaffolding. This natural growth pattern creates tissue structures that closely mimic 
+          human organs, opening new possibilities for regenerative medicine, disease modeling, and transplantation.
+        </p>
+      </section>
+
+      <!-- Key Innovations Grid -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Key Innovations</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              3D Tissue Engineering
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Stem cells cultured in space form complex 3D structures that replicate organ architecture. 
+              These organoids provide unprecedented opportunities to study human development, disease 
+              progression, and test new therapies in realistic tissue models.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Bone Regeneration Research
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Studies of accelerated bone loss in astronauts have revealed new insights into osteoporosis 
+              and bone healing. This research is leading to improved treatments for bone disorders and 
+              faster recovery from fractures.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Cardiac Tissue Development
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Heart tissue grown in microgravity develops more like natural cardiac muscle. These 
+              advances are accelerating research into heart disease treatments and potentially 
+              creating tissues for transplantation.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Cancer Modeling
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              3D tumor models grown in space behave more like actual tumors than traditional 2D cell 
+              cultures. This enables more accurate drug testing and personalized cancer treatment 
+              development.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Neural Tissue Studies
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Brain organoids grown in microgravity provide new insights into neurological disorders 
+              like Parkinson's and ALS. This research could lead to breakthrough treatments for 
+              previously incurable conditions.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem;">
+              Aging and Longevity Research
+            </h3>
+            <p style="color: var(--muted-foreground); line-height: 1.7;">
+              Microgravity accelerates certain aging processes, allowing researchers to study cellular 
+              senescence and test anti-aging interventions in compressed timeframes. These findings 
+              inform treatments for age-related diseases.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Impact Statistics -->
+      <section style="margin-bottom: 4rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Impact by Numbers</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(79, 179, 212, 0.1), rgba(91, 141, 239, 0.1));">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">200+</div>
+            <div style="color: var(--muted-foreground);">Tissue samples studied in space</div>
+          </div>
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(79, 179, 212, 0.1), rgba(91, 141, 239, 0.1));">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">8</div>
+            <div style="color: var(--muted-foreground);">Organ types successfully modeled</div>
+          </div>
+          <div class="card" style="text-align: center; background: linear-gradient(135deg, rgba(79, 179, 212, 0.1), rgba(91, 141, 239, 0.1));">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">500K+</div>
+            <div style="color: var(--muted-foreground);">Patients potentially benefiting from research</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sources -->
+      <section>
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Sources</h2>
+        <div class="section-divider" style="margin-bottom: 2rem;"></div>
+        
+        <div class="card">
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 1rem 0; border-bottom: 1px solid var(--border);">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Stem Cells Translational Medicine</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Research on microgravity effects on stem cell differentiation</p>
+            </li>
+            <li style="padding: 1rem 0; border-bottom: 1px solid var(--border);">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">NASA Space Biology Program</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Tissue engineering and regenerative medicine studies</p>
+            </li>
+            <li style="padding: 1rem 0; border-bottom: 1px solid var(--border);">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Nature Biomedical Engineering</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">3D organoid development in microgravity environments</p>
+            </li>
+            <li style="padding: 1rem 0;">
+              <h4 style="font-weight: 600; margin-bottom: 0.25rem;">International Stem Cell Research Society</h4>
+              <p style="font-size: 0.875rem; color: var(--muted-foreground);">Guidelines and findings from space-based stem cell experiments</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 3rem 1.5rem; border-top: 1px solid var(--border); margin-top: 4rem;">
+    <div style="max-width: 80rem; margin: 0 auto; text-align: center;">
+      <p style="color: var(--muted-foreground);">ISS Research Education | National History Day 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
