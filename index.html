@@ -132,7 +132,8 @@
       z-index: -1;
       background-size: cover;
       background-position: center;
-      transition: background-image 0.6s ease;
+      transition: opacity 0.6s ease;
+      opacity: 1;
     }
 
     .spacer {
@@ -241,11 +242,26 @@
       { threshold: 2400, image: 'https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg' }
     ];
 
+    // Preload all images
+    scenes.forEach(scene => {
+      const img = new Image();
+      img.src = scene.image;
+    });
+
+    let currentIndex = 0;
+
     function updateBackground() {
       const scrollY = window.scrollY;
       for (let i = scenes.length - 1; i >= 0; i--) {
         if (scrollY >= scenes[i].threshold) {
-          parallax.style.backgroundImage = `url(${scenes[i].image})`;
+          if (currentIndex !== i) {
+            currentIndex = i;
+            parallax.style.opacity = '0';
+            setTimeout(() => {
+              parallax.style.backgroundImage = `url(${scenes[i].image})`;
+              parallax.style.opacity = '1';
+            }, 600);
+          }
           break;
         }
       }
