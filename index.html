@@ -144,14 +144,22 @@
   <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 26, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);">
     <div style="max-width: 80rem; margin: 0 auto; padding: 0 1.5rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; height: 4rem;">
-        <a href="#hero" onclick="scrollToSection('hero', event)" style="display: flex; align-items: center;">
+        <a href="#hero" onclick="scrollToSection('hero', event)" 
+           style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
           <img 
             src="images/logo.png" 
-            alt="Project Logo"
+            alt="National History Day Project Logo"
             style="height: 42px; width: auto;"
           >
-          </a>
-        </div>
+          <span style="
+            font-weight: 600;
+            font-size: 1.125rem;
+            color: var(--foreground);
+            white-space: nowrap;
+          ">
+            Commercial Imaging Revolution
+          </span>
+        </a>
         <div style="display: flex; gap: 1.5rem;">
           <a href="#hero" class="nav-link" onclick="scrollToSection('hero', event)">Home</a>
           <a href="#history" class="nav-link" onclick="scrollToSection('history', event)">History</a>
@@ -179,10 +187,11 @@
   <section id="hero" style="position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
     <div id="hero-content" style="max-width: 64rem; margin: 0 auto; text-align: center;">
       <h1 style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem;">
-        From Orbit to <span style="color: var(--primary);">Earth</span>
+        How Images Changed the <span style="color: var(--primary);">World</span>
       </h1>
       <p style="font-size: 1.5rem; color: var(--muted-foreground); margin-bottom: 2rem; max-width: 48rem; margin-left: auto; margin-right: auto;">
-        How private commercial space research on the ISS is revolutionizing medicine and public health
+        The commercial imaging technologies developed aboard the International Space Station
+        that transformed medicine, public health, and global access to care
       </p>
       <button class="btn" onclick="scrollToSection('history', event)">
         Explore the Journey
@@ -255,7 +264,7 @@
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-            <a href="protein_crystallization.html" style="text-decoration: none; color: inherit;">
+            <a href="protein-crystallization.html" style="text-decoration: none; color: inherit;">
               <div class="card card-hover">
                 <div class="icon-box" style="background: rgba(91, 141, 239, 0.1); color: var(--primary);">
                   <svg style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,7 +280,7 @@
               </div>
             </a>
 
-            <a href="stem_cell_research.html" style="text-decoration: none; color: inherit;">
+            <a href="stem-cell-research.html" style="text-decoration: none; color: inherit;">
               <div class="card card-hover">
                 <div class="icon-box" style="background: rgba(79, 179, 212, 0.1); color: var(--accent);">
                   <svg style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
