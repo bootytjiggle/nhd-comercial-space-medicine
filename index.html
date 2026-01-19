@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Private Enterprise Beyond Earth - UPDATED</title>
-  <meta name="description" content="How commercial space innovation revolutionized medicine and public health" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Enterprise Beyond Earth</title>
+  <meta name="description" content="How commercial space innovation revolutionized medicine and public health">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -18,11 +18,10 @@
     }
 
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #060b1a, var(--bg));
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -131,6 +130,17 @@
     .spacer {
       height: 100vh;
     }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -138,36 +148,79 @@
   <div class="parallax" id="parallax"></div>
 
   <header>
-    <h1>PRIVATE ENTERPRISE BEYOND EARTH - TEST CHANGE</h1>
-    <p>
-      This is a visible test to confirm the website updates are working.
-    </p>
+    <h1>Private Enterprise Beyond Earth</h1>
+    <p>How commercial space innovation revolutionized medicine and public health through microgravity research, biotechnology, and private spaceflight.</p>
   </header>
 
   <nav>
     <ul>
       <li><a href="#context">Historical Context</a></li>
-      <li><a href="#innovation">The Innovation</a></li>
+      <li><a href="#innovation">Innovation</a></li>
       <li><a href="#impact">Medical Impact</a></li>
-      <li><a href="#theme">Theme Connection</a></li>
+      <li><a href="#theme">Theme</a></li>
       <li><a href="#sources">Sources</a></li>
     </ul>
   </nav>
 
-  <section id="context">
-    <h2>Historical Context (2000s–Present) - TEST</h2>
-    <p>Editing this paragraph confirms changes are live.</p>
+  <div class="spacer"></div>
+
+  <section id="context" class="fade-in">
+    <h2>Historical Context (2000s–Present)</h2>
+    <p>Private companies began partnering with NASA to conduct research on the International Space Station (ISS), transforming space from a government monopoly to a commercial research platform.</p>
   </section>
 
-  <section id="innovation">
+  <section id="innovation" class="fade-in">
     <h2>Commercial Microgravity Medical Research</h2>
-    <p>Testing scroll background effect and text changes.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Protein Crystal Growth</h3>
+        <p>Companies grew ultra-pure protein crystals in microgravity, improving drug design for cancer and other diseases.</p>
+      </div>
+      <div class="card">
+        <h3>Stem Cell & Tissue Research</h3>
+        <p>Studying accelerated bone loss and muscle atrophy in astronauts led to better osteoporosis and rehabilitation treatments.</p>
+      </div>
+      <div class="card">
+        <h3>Remote & Automated Medicine</h3>
+        <p>Spaceflight drove advances in telemedicine and robotic healthcare, now used on Earth in remote regions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="fade-in">
+    <h2>Impact on Public Health</h2>
+    <p>Discoveries made through commercial space research improved pharmaceuticals, understanding of aging, and healthcare technologies that benefit millions on Earth.</p>
+  </section>
+
+  <section id="theme" class="fade-in">
+    <h2>Revolution, Reaction, and Reform</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Revolution</h3>
+        <p>Private companies transformed space exploration and medical research accessibility.</p>
+      </div>
+      <div class="card">
+        <h3>Reaction</h3>
+        <p>Governments adapted by opening ISS access to private research missions.</p>
+      </div>
+      <div class="card">
+        <h3>Reform</h3>
+        <p>Long-term reforms reshaped science funding, healthcare research, and public-private collaboration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" class="fade-in">
+    <h2>Sources</h2>
+    <ul>
+      <li>NASA – International Space Station Research</li>
+      <li>National Institutes of Health (NIH) – Space Biology</li>
+      <li>Axiom Space & Commercial ISS Programs</li>
+    </ul>
   </section>
 
   <footer>
-    <p>
-      Created by <span>Preston Tran</span> · TEST UPDATE CONFIRMED
-    </p>
+    <p>Created by <span>Preston Tran</span> · National History Day Project</p>
   </footer>
 
   <script>
@@ -192,6 +245,16 @@
 
     window.addEventListener('scroll', updateBackground);
     updateBackground();
+
+    // Fade-in sections on scroll
+    const fadeSections = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    fadeSections.forEach(section => observer.observe(section));
   </script>
 
 </body>
