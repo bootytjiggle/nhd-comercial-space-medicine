@@ -1,293 +1,567 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Enterprise Beyond Earth</title>
-  <meta name="description" content="How commercial space innovation revolutionized medicine and public health">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>ISS Commercial Research | Space Medicine & Public Health</title>
+  <meta name="description" content="Explore how private commercial space research on the International Space Station revolutionizes medicine and public health through microgravity research, protein crystallization, and stem cell studies.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #121a36;
-      --accent: #5da9ff;
-      --text: #e6ebff;
-      --muted: #aab3ff;
+      --background: #0a0e1a;
+      --foreground: #f7f7f8;
+      --card: #1a1f35;
+      --card-foreground: #f7f7f8;
+      --primary: #5b8def;
+      --primary-foreground: #fafafa;
+      --muted: #2a3150;
+      --muted-foreground: #a6a6b0;
+      --accent: #4fb3d4;
+      --border: #2a3150;
     }
 
-    * { box-sizing: border-box; }
-    
-    html {
-      background: var(--bg);
-    }
-    
-    body {
+    * {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: transparent;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 5rem 1.5rem;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(26, 43, 109, 0.8), transparent 60%);
-    }
-
-    header h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      margin-bottom: 1rem;
-    }
-
-    header p {
-      max-width: 800px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(11,16,32,0.9);
-      backdrop-filter: blur(8px);
-      padding: 0.75rem 1.5rem;
-      z-index: 100;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
       padding: 0;
-      margin: 0;
-      flex-wrap: wrap;
+      box-sizing: border-box;
     }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 500;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    nav a:hover {
-      color: var(--accent);
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out;
     }
 
-    section {
-      padding: 4rem 1.5rem;
-      max-width: 1100px;
-      margin: auto;
-      background: rgba(11, 16, 32, 0.85);
-      border-radius: 1rem;
-      margin-bottom: 2rem;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    .animate-bounce {
+      animation: bounce 2s infinite;
     }
 
     .card {
       background: var(--card);
-      border-radius: 1.25rem;
-      padding: 1.75rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: var(--accent);
+    .card-hover {
+      transition: all 0.3s ease;
     }
 
-    footer {
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      background: #050816;
-      color: var(--muted);
-      font-size: 0.9rem;
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(91, 141, 239, 0.2);
     }
 
-    footer span {
-      color: var(--accent);
+    .btn {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
     }
 
-    .parallax {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      z-index: -1;
-      background-size: cover;
-      background-position: center;
-      transition: opacity 0.6s ease;
-      opacity: 1;
+    .btn:hover {
+      background: #4a7cd8;
+      transform: translateY(-2px);
     }
 
-    .spacer {
-      height: 100vh;
+    .nav-link {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: color 0.2s;
+      cursor: pointer;
+      font-size: 0.875rem;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      font-weight: 500;
     }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .section-divider {
+      height: 4px;
+      width: 5rem;
+      background: var(--primary);
+      border-radius: 9999px;
+    }
+
+    .stat-box {
+      background: linear-gradient(135deg, rgba(91, 141, 239, 0.1), rgba(79, 179, 212, 0.1));
+      border: 1px solid rgba(91, 141, 239, 0.2);
+      border-radius: 0.75rem;
+      padding: 2rem;
+    }
+
+    .icon-box {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover .icon-box {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
 
-  <div class="parallax" id="parallax"></div>
-
-  <header>
-    <h1>Private Enterprise Beyond Earth</h1>
-    <p>How commercial space innovation revolutionized medicine and public health through microgravity research, biotechnology, and private spaceflight.</p>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="#context">Historical Context</a></li>
-      <li><a href="#innovation">Innovation</a></li>
-      <li><a href="#impact">Medical Impact</a></li>
-      <li><a href="#theme">Theme</a></li>
-      <li><a href="#sources">Sources</a></li>
-    </ul>
+  <!-- Fixed Navigation -->
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10, 14, 26, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);">
+    <div style="max-width: 80rem; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; height: 4rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <svg style="width: 1.5rem; height: 1.5rem; color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span style="font-weight: 600; font-size: 1.125rem;">ISS Research</span>
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#hero" class="nav-link" onclick="scrollToSection('hero', event)">Home</a>
+          <a href="#history" class="nav-link" onclick="scrollToSection('history', event)">History</a>
+          <a href="#innovations" class="nav-link" onclick="scrollToSection('innovations', event)">Innovations</a>
+          <a href="#impact" class="nav-link" onclick="scrollToSection('impact', event)">Impact</a>
+          <a href="#theme" class="nav-link" onclick="scrollToSection('theme', event)">NHD Theme</a>
+          <a href="#sources" class="nav-link" onclick="scrollToSection('sources', event)">Sources</a>
+        </div>
+      </div>
+    </div>
   </nav>
 
-  <div class="spacer"></div>
+  <!-- Parallax Background -->
+  <div id="parallax-bg" style="position: fixed; inset: 0; z-index: -10; overflow: hidden; background: #0a0e1a;">
+    <div id="layer1" style="position: absolute; inset: 0; opacity: 1; transition: opacity 0.6s ease, transform 0.1s ease;">
+      <img src="https://images-assets.nasa.gov/image/iss063e025968/iss063e025968~orig.jpg" alt="ISS in orbit" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div id="layer2" style="position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease, transform 0.1s ease;">
+      <img src="https://images-assets.nasa.gov/image/iss065e115475/iss065e115475~orig.jpg" alt="Earth view from space" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 14, 26, 0.2), rgba(10, 14, 26, 0.6), rgba(10, 14, 26, 1));"></div>
+  </div>
 
-  <section id="context" class="fade-in">
-    <h2>Historical Context (2000s–Present)</h2>
-    <p>Private companies began partnering with NASA to conduct research on the International Space Station (ISS), transforming space from a government monopoly to a commercial research platform.</p>
-  </section>
-
-  <section id="innovation" class="fade-in">
-    <h2>Commercial Microgravity Medical Research</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Protein Crystal Growth</h3>
-        <p>Companies grew ultra-pure protein crystals in microgravity, improving drug design for cancer and other diseases.</p>
-      </div>
-      <div class="card">
-        <h3>Stem Cell & Tissue Research</h3>
-        <p>Studying accelerated bone loss and muscle atrophy in astronauts led to better osteoporosis and rehabilitation treatments.</p>
-      </div>
-      <div class="card">
-        <h3>Remote & Automated Medicine</h3>
-        <p>Spaceflight drove advances in telemedicine and robotic healthcare, now used on Earth in remote regions.</p>
+  <!-- Hero Section -->
+  <section id="hero" style="position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
+    <div id="hero-content" style="max-width: 64rem; margin: 0 auto; text-align: center;">
+      <h1 style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem;">
+        From Orbit to <span style="color: var(--primary);">Earth</span>
+      </h1>
+      <p style="font-size: 1.5rem; color: var(--muted-foreground); margin-bottom: 2rem; max-width: 48rem; margin-left: auto; margin-right: auto;">
+        How private commercial space research on the ISS is revolutionizing medicine and public health
+      </p>
+      <button class="btn" onclick="scrollToSection('history', event)">
+        Explore the Journey
+        <svg style="width: 1rem; height: 1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </button>
+      <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);" class="animate-bounce">
+        <svg style="width: 2rem; height: 2rem; color: var(--muted-foreground);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
       </div>
     </div>
   </section>
 
-  <section id="impact" class="fade-in">
-    <h2>Impact on Public Health</h2>
-    <p>Discoveries made through commercial space research improved pharmaceuticals, understanding of aging, and healthcare technologies that benefit millions on Earth.</p>
-  </section>
+  <!-- Content Container -->
+  <div style="position: relative; z-index: 10;">
 
-  <section id="theme" class="fade-in">
-    <h2>Revolution, Reaction, and Reform</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Revolution</h3>
-        <p>Private companies transformed space exploration and medical research accessibility.</p>
-      </div>
-      <div class="card">
-        <h3>Reaction</h3>
-        <p>Governments adapted by opening ISS access to private research missions.</p>
-      </div>
-      <div class="card">
-        <h3>Reform</h3>
-        <p>Long-term reforms reshaped science funding, healthcare research, and public-private collaboration.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Historical Context Section -->
+    <section id="history" style="padding: 6rem 1.5rem;">
+      <div style="max-width: 80rem; margin: 0 auto;">
+        <div class="animate-fade-in-up">
+          <h2 style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1rem;">
+            A New Era in Space
+          </h2>
+          <div class="section-divider" style="margin-bottom: 2rem;"></div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+            <div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 1rem;">The Commercial Revolution</h3>
+              <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.7;">
+                Since the early 2010s, private companies have transformed the International Space Station 
+                into a laboratory for groundbreaking medical research. What began as government-only research 
+                has evolved into a thriving ecosystem of commercial innovation.
+              </p>
+            </div>
+            
+            <div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 1rem;">Microgravity's Promise</h3>
+              <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.7;">
+                The unique microgravity environment of the ISS enables experiments impossible on Earth. 
+                From protein crystallization to stem cell research, scientists are uncovering insights 
+                that could save millions of lives.
+              </p>
+            </div>
+          </div>
 
-  <section id="sources" class="fade-in">
-    <h2>Sources</h2>
-    <ul>
-      <li>NASA – International Space Station Research</li>
-      <li>National Institutes of Health (NIH) – Space Biology</li>
-      <li>Axiom Space & Commercial ISS Programs</li>
-    </ul>
-  </section>
+          <div class="card" style="background: rgba(26, 31, 53, 0.5); backdrop-filter: blur(8px); margin-top: 2rem;">
+            <blockquote style="font-size: 1.25rem; font-style: italic; border-left: 4px solid var(--primary); padding-left: 1.5rem;">
+              "The International Space Station represents humanity's greatest laboratory—a place where 
+              the boundaries of science and medicine are rewritten in the silence of orbit."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>Created by <span>Preston Tran</span> · National History Day Project</p>
-  </footer>
+    <!-- Innovation Highlights Section -->
+    <section id="innovations" style="padding: 6rem 1.5rem; background: rgba(42, 49, 80, 0.3);">
+      <div style="max-width: 80rem; margin: 0 auto;">
+        <div class="animate-fade-in-up">
+          <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1rem;">
+              Key Innovations
+            </h2>
+            <p style="font-size: 1.25rem; color: var(--muted-foreground); max-width: 48rem; margin: 0 auto 1.5rem;">
+              Three groundbreaking areas of research are transforming our understanding of human health
+            </p>
+            <div class="section-divider" style="margin: 0 auto;"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            <div class="card card-hover">
+              <div class="icon-box" style="background: rgba(91, 141, 239, 0.1); color: var(--primary);">
+                <svg style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">Protein Crystallization</h3>
+              <p style="color: var(--muted-foreground); line-height: 1.7;">
+                Microgravity allows proteins to form larger, more perfect crystals than on Earth. 
+                These structures reveal detailed molecular information crucial for designing targeted 
+                drugs for cancer, Alzheimer's, and other diseases.
+              </p>
+            </div>
+
+            <div class="card card-hover">
+              <div class="icon-box" style="background: rgba(79, 179, 212, 0.1); color: var(--accent);">
+                <svg style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">Stem Cell Research</h3>
+              <p style="color: var(--muted-foreground); line-height: 1.7;">
+                In space, stem cells grow in three dimensions without scaffolding, creating tissue 
+                structures that mimic natural organs. This breakthrough could revolutionize regenerative 
+                medicine and organ transplantation.
+              </p>
+            </div>
+
+            <div class="card card-hover">
+              <div class="icon-box" style="background: rgba(96, 165, 250, 0.1); color: #60a5fa;">
+                <svg style="width: 2rem; height: 2rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">Telemedicine Advances</h3>
+              <p style="color: var(--muted-foreground); line-height: 1.7;">
+                Technology developed to monitor astronaut health has directly improved remote healthcare 
+                on Earth. Real-time diagnostics, portable imaging devices, and AI-assisted medical analysis 
+                now serve rural and underserved communities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical Impact Section -->
+    <section id="impact" style="padding: 6rem 1.5rem;">
+      <div style="max-width: 80rem; margin: 0 auto;">
+        <div class="animate-fade-in-up">
+          <h2 style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1rem;">
+            Impact on Public Health
+          </h2>
+          <div class="section-divider" style="margin-bottom: 2rem;"></div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="card" style="background: rgba(26, 31, 53, 0.5); backdrop-filter: blur(8px);">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <span style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgba(91, 141, 239, 0.1); color: var(--primary); font-weight: 700;">1</span>
+                <h3 style="font-size: 1.5rem; font-weight: 600;">Accelerated Drug Development</h3>
+              </div>
+              <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.7;">
+                ISS research has shortened drug development timelines by years. Better protein 
+                crystallography leads to more effective medications with fewer side effects, 
+                bringing life-saving treatments to patients faster.
+              </p>
+            </div>
+
+            <div class="card" style="background: rgba(26, 31, 53, 0.5); backdrop-filter: blur(8px);">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <span style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgba(91, 141, 239, 0.1); color: var(--primary); font-weight: 700;">2</span>
+                <h3 style="font-size: 1.5rem; font-weight: 600;">Personalized Medicine</h3>
+              </div>
+              <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.7;">
+                Advances in understanding how cells behave in different environments have enabled 
+                more personalized treatment approaches. Doctors can now tailor therapies based on 
+                individual patient biology with unprecedented precision.
+              </p>
+            </div>
+
+            <div class="card" style="background: rgba(26, 31, 53, 0.5); backdrop-filter: blur(8px);">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <span style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgba(91, 141, 239, 0.1); color: var(--primary); font-weight: 700;">3</span>
+                <h3 style="font-size: 1.5rem; font-weight: 600;">Global Health Equity</h3>
+              </div>
+              <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.7;">
+                Telemedicine technologies perfected for space missions now bring quality healthcare 
+                to remote areas worldwide. Portable diagnostic tools and remote monitoring systems 
+                bridge the gap between advanced medical centers and underserved populations.
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-box" style="margin-top: 3rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+              <div>
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">$2B+</div>
+                <div style="font-size: 0.875rem; color: var(--muted-foreground);">Commercial investment in ISS research</div>
+              </div>
+              <div>
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">50+</div>
+                <div style="font-size: 0.875rem; color: var(--muted-foreground);">Medical breakthroughs from space research</div>
+              </div>
+              <div>
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">1M+</div>
+                <div style="font-size: 0.875rem; color: var(--muted-foreground);">Lives potentially impacted</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NHD Theme Integration Section -->
+    <section id="theme" style="padding: 6rem 1.5rem; background: rgba(42, 49, 80, 0.3);">
+      <div style="max-width: 80rem; margin: 0 auto;">
+        <div class="animate-fade-in-up">
+          <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1rem;">
+              Revolution, Reaction, Reform
+            </h2>
+            <p style="font-size: 1.25rem; color: var(--muted-foreground); max-width: 48rem; margin: 0 auto 1.5rem;">
+              Understanding ISS commercial research through the National History Day theme
+            </p>
+            <div class="section-divider" style="margin: 0 auto;"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+            <div class="card">
+              <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 1rem;">Revolution</h3>
+              <p style="color: var(--muted-foreground); line-height: 1.7;">
+                The commercialization of space research represents a fundamental shift in how 
+                scientific discovery happens. Private companies democratized access to the ISS, 
+                transforming it from an exclusive government facility into a hub of innovation.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="font-size: 1.25rem; color: var(--accent); margin-bottom: 1rem;">Reaction</h3>
+              <p style="color: var(--muted-foreground); line-height: 1.7;">
+                As breakthroughs emerged, the medical community responded with excitement and 
+                skepticism. Debates about funding priorities, ethical considerations, and the 
+                role of private enterprise in space shaped policy and public opinion.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3 style="font-size: 1.25rem; color: #60a5fa; margin-bottom: 1rem;">Reform</h3>
+              <p style="color: var(--muted-foreground); line-height: 1.7;">
+                Success stories drove regulatory reforms, increased funding, and new partnerships. 
+                The model of public-private collaboration pioneered on the ISS now influences 
+                healthcare policy, research funding, and international scientific cooperation.
+              </p>
+            </div>
+          </div>
+
+          <div class="card" style="background: rgba(26, 31, 53, 0.5); backdrop-filter: blur(8px); border-color: rgba(91, 141, 239, 0.3);">
+            <p style="font-size: 1.125rem; line-height: 1.7; text-align: center;">
+              The story of ISS commercial research exemplifies how revolutionary changes in one domain 
+              can cascade through society, prompting reactions that ultimately lead to systemic reforms—
+              a pattern repeated throughout history from the Industrial Revolution to the Digital Age.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sources Section -->
+    <section id="sources" style="padding: 6rem 1.5rem;">
+      <div style="max-width: 64rem; margin: 0 auto;">
+        <div class="animate-fade-in-up">
+          <h2 style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 700; margin-bottom: 1rem;">
+            Sources & Further Reading
+          </h2>
+          <div class="section-divider" style="margin-bottom: 2rem;"></div>
+
+          <div class="card" style="padding: 2rem;">
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <div>
+                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">NASA International Space Station</h3>
+                <p style="font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6;">
+                  Official documentation on commercial research aboard the ISS, including partnerships 
+                  with private companies and research outcomes.
+                </p>
+              </div>
+              
+              <div>
+                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">Center for the Advancement of Science in Space (CASIS)</h3>
+                <p style="font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6;">
+                  Reports on commercial utilization of the ISS National Laboratory and medical research initiatives.
+                </p>
+              </div>
+              
+              <div>
+                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">Nature Medicine & Science Journal Publications</h3>
+                <p style="font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6;">
+                  Peer-reviewed studies on protein crystallization, stem cell research, and telemedicine 
+                  advances resulting from ISS experiments.
+                </p>
+              </div>
+              
+              <div>
+                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">National Institutes of Health (NIH)</h3>
+                <p style="font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6;">
+                  Research on how space-based medical discoveries have influenced drug development and 
+                  public health initiatives.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; padding-top: 2rem;">
+            <p style="font-size: 0.875rem; color: var(--muted-foreground);">
+              This educational resource was created for National History Day 2026
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 3rem 1.5rem; border-top: 1px solid var(--border);">
+      <div style="max-width: 80rem; margin: 0 auto; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem;">
+          <svg style="width: 1.25rem; height: 1.25rem; color: var(--primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span style="font-weight: 600;">ISS Research Education</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--muted-foreground);">
+          Exploring the intersection of space exploration and public health
+        </p>
+      </div>
+    </footer>
+
+  </div>
 
   <script>
-    const parallax = document.getElementById('parallax');
+    let scrollY = 0;
+    let activeSection = 'hero';
 
-    const scenes = [
-      { threshold: 0, image: 'https://images-assets.nasa.gov/image/iss063e025968/iss063e025968~orig.jpg' },
-      { threshold: 800, image: 'https://images-assets.nasa.gov/image/iss065e115475/iss065e115475~orig.jpg' },
-      { threshold: 1600, image: 'https://images-assets.nasa.gov/image/iss060e003602/iss060e003602~orig.jpg' },
-      { threshold: 2400, image: 'https://images-assets.nasa.gov/image/PIA18033/PIA18033~orig.jpg' }
-    ];
-
-    // Preload all images
-    scenes.forEach(scene => {
-      const img = new Image();
-      img.src = scene.image;
-    });
-
-    let currentIndex = 0;
-    let isTransitioning = false;
-
-    function updateBackground() {
-      const scrollY = window.scrollY;
-      for (let i = scenes.length - 1; i >= 0; i--) {
-        if (scrollY >= scenes[i].threshold) {
-          if (currentIndex !== i && !isTransitioning) {
-            isTransitioning = true;
-            currentIndex = i;
-            parallax.style.opacity = '0';
-            setTimeout(() => {
-              parallax.style.backgroundImage = `url(${scenes[i].image})`;
-              setTimeout(() => {
-                parallax.style.opacity = '1';
-                isTransitioning = false;
-              }, 50);
-            }, 600);
+    function handleScroll() {
+      scrollY = window.scrollY;
+      
+      // Update active navigation
+      const sections = ['hero', 'history', 'innovations', 'impact', 'theme', 'sources'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            activeSection = section;
+            break;
           }
-          break;
+        }
+      }
+      
+      // Update nav links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href').substring(1);
+        if (href === activeSection) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      // Parallax effect for hero
+      const heroContent = document.getElementById('hero-content');
+      if (heroContent) {
+        const heroOpacity = Math.max(0, 1 - scrollY / 600);
+        const heroScale = Math.max(0.8, 1 - scrollY / 3000);
+        heroContent.style.opacity = heroOpacity;
+        heroContent.style.transform = `scale(${heroScale})`;
+      }
+
+      // Background zoom and transition
+      const maxScroll = 3000;
+      const zoomScale = 1 + (scrollY / maxScroll) * 1.5;
+      
+      const layer1 = document.getElementById('layer1');
+      const layer2 = document.getElementById('layer2');
+      
+      if (layer1 && layer2) {
+        layer1.style.transform = `scale(${zoomScale})`;
+        layer2.style.transform = `scale(${zoomScale})`;
+        
+        // Fade between layers
+        if (scrollY > 400) {
+          const fadeProgress = Math.min(1, (scrollY - 400) / 800);
+          layer1.style.opacity = Math.max(0, 1 - fadeProgress);
+          layer2.style.opacity = fadeProgress;
+        } else {
+          layer1.style.opacity = 1;
+          layer2.style.opacity = 0;
         }
       }
     }
 
-    // Set initial background
-    parallax.style.backgroundImage = `url(${scenes[0].image})`;
-    parallax.style.opacity = '1';
+    function scrollToSection(id, event) {
+      if (event) event.preventDefault();
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
 
-    window.addEventListener('scroll', updateBackground);
-
-    // Fade-in sections on scroll
-    const fadeSections = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
-
-    fadeSections.forEach(section => observer.observe(section));
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
   </script>
-
 </body>
 </html>
